@@ -89,7 +89,8 @@ def get_optimal_price():
     return {"Optimal Charging Price": f"${optimal_price}"}
 
 
+handler = Mangum(app)
+
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
 
-handler = Mangum(app)
