@@ -7,6 +7,7 @@ from fastapi import FastAPI
 from stable_baselines3 import PPO
 import uvicorn
 import os
+from mangum import Mangum
 
 # Twitter API Keys (Replace with your keys)
 TWITTER_API_KEY = "your_twitter_api_key"
@@ -90,3 +91,5 @@ def get_optimal_price():
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
+
+handler = Mangum(app)
