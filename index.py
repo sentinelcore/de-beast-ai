@@ -5,15 +5,13 @@ app = FastAPI()
 
 @app.get("/")
 def home():
-    return {"message": "FastAPI is running on Vercel!"}
+    print("✅ Root API was accessed!")  # Forces logs in Vercel
+    return {"message": "FastAPI is running successfully on Vercel!"}
 
 @app.get("/get_price")
 def get_optimal_price():
+    print("✅ Pricing API was accessed!")  # Logs API calls
     return {"Optimal Charging Price": "$90"}
 
-# Required for Vercel
+# Required for Vercel Functions to detect FastAPI correctly
 handler = Mangum(app)
-
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
-
