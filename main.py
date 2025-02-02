@@ -5,14 +5,6 @@ app = FastAPI()
 
 @app.get("/")
 def home():
-    print("✅ Root API was accessed!")  # Forces logs in Vercel
-    return {"message": "FastAPI is running successfully on Vercel!"}
+    return {"message": "FastAPI is working!"}
 
-@app.get("/get_price")
-def get_price():
-    print("✅ Pricing API was accessed!")  # Logs API calls
-    return {"Optimal Charging Price": "$90"}
-
-#Test if this works bro
-# Required for Vercel Functions to detect FastAPI correctly
 handler = Mangum(app)
